@@ -1,0 +1,19 @@
+{
+  "backend/main.mo": "Empty Motoko actor with no functionality; backend is unused as the game runs entirely client-side.",
+  "feature_evidence.json": "Feature evidence report documenting all implemented game features including landing page, navigation, canvas game, player controls, shooting mechanics, enemy spawning, collision detection, and scoring system.",
+  "frontend-file-summaries.txt": "JSON-formatted summaries of all frontend files describing their roles in the Dark KillZone game application.",
+  "frontend/index.css": "Tailwind CSS configuration with OKLCH color system defining light and dark theme variables for the application's design tokens.",
+  "frontend/index.html": "HTML entry point with root div and module script loading for the Dark KillZone React application.",
+  "frontend/src/App.tsx": "Root React component managing game state toggle between hero landing page and active game canvas, with navigation and footer.",
+  "frontend/src/components/Footer.tsx": "Footer component displaying copyright, heart icon animation, and attribution link to caffeine.ai with UTM tracking.",
+  "frontend/src/components/GameCanvas.tsx": "Canvas-based 2D shooter game implementing player movement (arrow keys), shooting (spacebar), enemy spawning, collision detection, score tracking, and game loop using requestAnimationFrame.",
+  "frontend/src/components/Hero.tsx": "Hero landing page with background image, radial gradient overlay, animated 'ENTER THE BATTLE' title, and START GAME button.",
+  "frontend/src/components/Navigation.tsx": "Fixed navigation bar with 'Dark KillZone' branding in red with glow effect and semi-transparent dark background with backdrop blur.",
+  "frontend/src/hooks/useActor.ts": "React hook for managing ICP backend actor creation with authentication support, query caching, and automatic invalidation on identity changes.",
+  "frontend/src/hooks/useInternetIdentity.ts": "React context and hook for Internet Identity authentication, providing login/logout functionality and identity state management with AuthClient.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder file as the game runs entirely client-side without backend queries.",
+  "frontend/src/index.css": "Global CSS file that imports Tailwind directives and defines CSS custom properties for a dark-themed color system using OKLCH color space, along with custom utility classes for danger colors, glow effects, animations, and game-specific styles.",
+  "frontend/src/main.tsx": "Application entry point that sets up React root with QueryClient for data fetching and InternetIdentityProvider for authentication, then renders the main App component.",
+  "frontend/tailwind.config.js": "Tailwind CSS configuration that extends the default theme with custom OKLCH-based color tokens, border radius variables, custom animations (accordion), and includes typography, container queries, and animate plugins.",
+  "project_state.json": "Project metadata file documenting the 'Dark KillZone' 2D shooter game architecture, including implemented features like canvas-based rendering, player controls, shooting mechanics, enemy spawning, and collision detection using HTML5 Canvas and vanilla JavaScript."
+}

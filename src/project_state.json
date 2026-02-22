@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "2D web-based shooter game called 'Dark KillZone' with HTML5 Canvas gameplay featuring player movement, shooting mechanics, enemy spawning, and collision detection",
+  "architectural_notes": [
+    "HTML5 Canvas-based 2D game rendering",
+    "Vanilla JavaScript game loop using requestAnimationFrame",
+    "Event-driven keyboard controls (arrow keys + spacebar)",
+    "Simple collision detection using bounding box algorithm"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Dark atmospheric hero background image with combat/battle theme for landing page (hero-bg.dim_1920x1080.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-landing-page-with-a-hero-section-featuring-the-title-enter-the-battle-a-start-game-button-and-a-dark-radial-gradient-background-transitioning-from-111-to-000",
+      "title": "Create a landing page with a hero section featuring the title 'ENTER THE BATTLE', a 'START GAME' button, and a dark radial gradient background transitioning from #111 to #000",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-navigation-bar-with-dark-killzone-branding-in-red-ff003c-with-glow-effect-semi-transparent-dark-background-with-backdrop-blur",
+      "title": "Implement a navigation bar with 'Dark KillZone' branding in red (#ff003c) with glow effect, semi-transparent dark background with backdrop blur",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-2d-canvas-based-shooter-game-with-html5-canvas-500x400px-that-displays-when-the-start-game-button-is-clicked-hiding-the-landing-page",
+      "title": "Build a 2D canvas-based shooter game with HTML5 Canvas (500x400px) that displays when the START GAME button is clicked, hiding the landing page",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-player-character-as-a-red-square-30x30px-positioned-at-the-bottom-center-of-the-canvas-controllable-with-left-right-arrow-keys-moving-20px-per-press",
+      "title": "Implement player character as a red square (30x30px) positioned at the bottom center of the canvas, controllable with left/right arrow keys moving 20px per press",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-shooting-mechanics-where-spacebar-fires-yellow-bullets-5x10px-upward-from-the-player-position-at-5px-per-frame",
+      "title": "Implement shooting mechanics where spacebar fires yellow bullets (5x10px) upward from the player position at 5px per frame",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-enemy-spawning-system-that-creates-white-square-enemies-30x30px-at-random-x-positions-at-the-top-of-the-canvas-every-1-second-moving-downward-at-2px-per-frame",
+      "title": "Implement enemy spawning system that creates white square enemies (30x30px) at random x positions at the top of the canvas every 1 second, moving downward at 2px per frame",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-collision-detection-between-bullets-and-enemies-that-destroys-both-objects-on-contact-using-rectangular-bounding-box-detection",
+      "title": "Implement collision detection between bullets and enemies that destroys both objects on contact using rectangular bounding box detection",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-game-loop-using-requestanimationframe-that-continuously-clears-the-canvas-and-redraws-all-game-entities-player-bullets-enemies",
+      "title": "Implement game loop using requestAnimationFrame that continuously clears the canvas and redraws all game entities (player, bullets, enemies)",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-consistent-dark-theme-styling-with-red-accent-color-ff003c-including-glow-effects-on-interactive-elements-and-text-shadows",
+      "title": "Apply consistent dark theme styling with red accent color (#ff003c), including glow effects on interactive elements and text shadows",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [],
+  "gameProjectType": "2d",
+  "projectName": "Dark KillZone",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

@@ -1,0 +1,176 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Dark KillZone 2D Shooter Game",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create landing page with hero section featuring 'ENTER THE BATTLE' title, START GAME button, and dark radial gradient background",
+      "acceptanceCriteria": [
+        "Hero section occupies 90vh height",
+        "Title text has red glow effect and pulsing animation",
+        "Button has hover effect with scale and red glow",
+        "Background uses radial gradient from #111 to #000"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add hero section component with title 'ENTER THE BATTLE', START GAME button, and dark radial gradient background. Include state management to toggle between landing page and game view. Wire the generated hero background image from frontend/public/assets/generated/hero-bg.dim_1920x1080.png as a background layer."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add global styles for hero section including 90vh height, red glow text shadow effects (0 0 15px #ff003c), pulsing animation keyframes for title, button hover effects with scale transform and red glow, and dark radial gradient background from #111 to #000."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement navigation bar with 'Dark KillZone' branding in red with glow effect and semi-transparent dark background with backdrop blur",
+      "acceptanceCriteria": [
+        "Navigation bar spans full width with padding 15px 40px",
+        "Brand text color is #ff003c with red glow shadow effect",
+        "Background is rgba(0,0,0,0.7) with 5px backdrop blur"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Navigation.tsx",
+          "operation": "create",
+          "description": "Create navigation component with 'Dark KillZone' branding text in red (#ff003c) with glow effect (text-shadow: 0 0 15px #ff003c). Style with full width, padding 15px 40px, rgba(0,0,0,0.7) background, and 5px backdrop blur."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render Navigation component at the top of the app layout."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Build 2D canvas-based shooter game with HTML5 Canvas (500x400px) that displays when START GAME button is clicked",
+      "acceptanceCriteria": [
+        "Canvas is 500x400 pixels with dark background (#111) and red border",
+        "Game area is hidden initially and displays when START GAME is clicked",
+        "Landing page hero section hides when game starts"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/GameCanvas.tsx",
+          "operation": "create",
+          "description": "Create game canvas component containing an HTML5 Canvas element with 500x400px dimensions, dark background (#111), and red border. Implement canvas ref for 2D rendering context. This component will be conditionally rendered when the game starts."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add state to track game active status. Wire START GAME button click handler to toggle state, hiding hero section and displaying GameCanvas component when game starts."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Implement player character as red square (30x30px) at bottom center, controllable with arrow keys moving 20px per press",
+      "acceptanceCriteria": [
+        "Player renders as red 30x30px square",
+        "Player starts at x=250, y=360",
+        "Arrow left key moves player 20px left",
+        "Arrow right key moves player 20px right"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/GameCanvas.tsx",
+          "operation": "modify",
+          "description": "Add player state initialized at x=250, y=360. Implement keyboard event listener for ArrowLeft and ArrowRight keys that updates player x position by ±20px. Render player as red 30x30px square using fillRect on canvas 2D context."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Implement shooting mechanics where spacebar fires yellow bullets (5x10px) upward at 5px per frame",
+      "acceptanceCriteria": [
+        "Spacebar creates new bullet at player position",
+        "Bullets render as yellow 5x10px rectangles",
+        "Bullets move upward at 5px per frame",
+        "Bullets are removed when they exit the top of canvas"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/GameCanvas.tsx",
+          "operation": "modify",
+          "description": "Add bullets array state. Implement keyboard event listener for spacebar that pushes new bullet object {x: playerX, y: 350} to bullets array. In game loop, update bullet y positions by -5px per frame, render bullets as yellow 5x10px rectangles using fillRect, and remove bullets when y < 0."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Implement enemy spawning system that creates white square enemies (30x30px) at random x positions every 1 second, moving downward at 2px per frame",
+      "acceptanceCriteria": [
+        "New enemy spawns every 1000ms",
+        "Enemies spawn at random x position (0-480) at y=0",
+        "Enemies render as white 30x30px squares",
+        "Enemies move downward at 2px per frame"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/GameCanvas.tsx",
+          "operation": "modify",
+          "description": "Add enemies array state. Set up setInterval(1000ms) to spawn enemy objects {x: Math.random() * 480, y: 0} and push to enemies array. In game loop, update enemy y positions by +2px per frame and render enemies as white 30x30px squares using fillRect."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Implement collision detection between bullets and enemies using rectangular bounding box detection",
+      "acceptanceCriteria": [
+        "Collision detection checks all bullet-enemy pairs each frame",
+        "Both bullet and enemy are removed when collision occurs",
+        "Collision uses rectangular bounding box algorithm"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/GameCanvas.tsx",
+          "operation": "modify",
+          "description": "In game loop, implement nested iteration over bullets and enemies arrays. For each pair, check collision using rectangular bounding box algorithm: b.x < e.x + 30 && b.x + 5 > e.x && b.y < e.y + 30 && b.y + 10 > e.y. When collision detected, remove both bullet and enemy from their respective arrays using splice."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Implement game loop using requestAnimationFrame that continuously clears canvas and redraws all entities",
+      "acceptanceCriteria": [
+        "Game loop runs using requestAnimationFrame",
+        "Canvas is cleared every frame before redrawing",
+        "All entities (player, bullets, enemies) are rendered each frame"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/GameCanvas.tsx",
+          "operation": "modify",
+          "description": "Create game loop function using requestAnimationFrame. Clear canvas with clearRect(0, 0, 500, 400) each frame. Update and render player, bullets, and enemies in sequence. Call requestAnimationFrame recursively to maintain continuous loop. Initialize loop when component mounts and clean up on unmount."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Apply consistent dark theme styling with red accent color (#ff003c), glow effects on interactive elements, and text shadows",
+      "acceptanceCriteria": [
+        "Primary accent color is #ff003c (red)",
+        "Text elements use red glow shadow effects",
+        "Interactive elements scale and glow on hover",
+        "Overall theme maintains dark aesthetic with red highlights"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define CSS custom properties for primary red accent (#ff003c). Add text-shadow utilities for red glow effects (0 0 15px #ff003c, 0 0 25px red). Create hover transition classes for interactive elements with scale transform and red glow. Ensure dark background colors (#000, #111) are applied globally."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with custom red accent color (#ff003c) and dark background colors. Add custom utilities for glow effects and animations to maintain consistent dark theme with red highlights throughout the application."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-landing-page-with-a-hero-section-featuring-the-title-enter-the-battle-a-start-game-button-and-a-dark-radial-gradient-background-transitioning-from-111-to-000",
+      "featureTitle": "Create a landing page with a hero section featuring the title 'ENTER THE BATTLE', a 'START GAME' button, and a dark radial gradient background transitioning from #111 to #000",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-navigation-bar-with-dark-killzone-branding-in-red-ff003c-with-glow-effect-semi-transparent-dark-background-with-backdrop-blur",
+      "featureTitle": "Implement a navigation bar with 'Dark KillZone' branding in red (#ff003c) with glow effect, semi-transparent dark background with backdrop blur",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Navigation.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-2d-canvas-based-shooter-game-with-html5-canvas-500x400px-that-displays-when-the-start-game-button-is-clicked-hiding-the-landing-page",
+      "featureTitle": "Build a 2D canvas-based shooter game with HTML5 Canvas (500x400px) that displays when the START GAME button is clicked, hiding the landing page",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/GameCanvas.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-player-character-as-a-red-square-30x30px-positioned-at-the-bottom-center-of-the-canvas-controllable-with-left-right-arrow-keys-moving-20px-per-press",
+      "featureTitle": "Implement player character as a red square (30x30px) positioned at the bottom center of the canvas, controllable with left/right arrow keys moving 20px per press",
+      "files": [
+        "frontend/src/components/GameCanvas.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-shooting-mechanics-where-spacebar-fires-yellow-bullets-5x10px-upward-from-the-player-position-at-5px-per-frame",
+      "featureTitle": "Implement shooting mechanics where spacebar fires yellow bullets (5x10px) upward from the player position at 5px per frame",
+      "files": [
+        "frontend/src/components/GameCanvas.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-enemy-spawning-system-that-creates-white-square-enemies-30x30px-at-random-x-positions-at-the-top-of-the-canvas-every-1-second-moving-downward-at-2px-per-frame",
+      "featureTitle": "Implement enemy spawning system that creates white square enemies (30x30px) at random x positions at the top of the canvas every 1 second, moving downward at 2px per frame",
+      "files": [
+        "frontend/src/components/GameCanvas.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-collision-detection-between-bullets-and-enemies-that-destroys-both-objects-on-contact-using-rectangular-bounding-box-detection",
+      "featureTitle": "Implement collision detection between bullets and enemies that destroys both objects on contact using rectangular bounding box detection",
+      "files": [
+        "frontend/src/components/GameCanvas.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-game-loop-using-requestanimationframe-that-continuously-clears-the-canvas-and-redraws-all-game-entities-player-bullets-enemies",
+      "featureTitle": "Implement game loop using requestAnimationFrame that continuously clears the canvas and redraws all game entities (player, bullets, enemies)",
+      "files": [
+        "frontend/src/components/GameCanvas.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-consistent-dark-theme-styling-with-red-accent-color-ff003c-including-glow-effects-on-interactive-elements-and-text-shadows",
+      "featureTitle": "Apply consistent dark theme styling with red accent color (#ff003c), including glow effects on interactive elements and text shadows",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

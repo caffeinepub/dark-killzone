@@ -1,0 +1,199 @@
+{
+  "kind": "build_request",
+  "title": "Build Dark KillZone shooter game",
+  "projectName": "Dark KillZone",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a landing page with a hero section featuring the title 'ENTER THE BATTLE', a 'START GAME' button, and a dark radial gradient background transitioning from #111 to #000",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "<div class=\"hero\">\n    <h2>ENTER THE BATTLE</h2>\n    <button class=\"play-btn\" onclick=\"startGame()\">START GAME</button>\n</div>"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hero section occupies 90vh height",
+        "Title text has red glow effect and pulsing animation",
+        "Button has hover effect with scale and red glow",
+        "Background uses radial gradient from #111 to #000"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement a navigation bar with 'Dark KillZone' branding in red (#ff003c) with glow effect, semi-transparent dark background with backdrop blur",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "<nav>\n    <h1>Dark KillZone</h1>\n</nav>"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Navigation bar spans full width with padding 15px 40px",
+        "Brand text color is #ff003c with red glow shadow effect",
+        "Background is rgba(0,0,0,0.7) with 5px backdrop blur"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Build a 2D canvas-based shooter game with HTML5 Canvas (500x400px) that displays when the START GAME button is clicked, hiding the landing page",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "<canvas id=\"gameCanvas\" width=\"500\" height=\"400\"></canvas>"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Canvas is 500x400 pixels with dark background (#111) and red border",
+        "Game area is hidden initially and displays when START GAME is clicked",
+        "Landing page hero section hides when game starts"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement player character as a red square (30x30px) positioned at the bottom center of the canvas, controllable with left/right arrow keys moving 20px per press",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "let playerX = 250;",
+          "if(e.key===\"ArrowLeft\") playerX-=20;\n        if(e.key===\"ArrowRight\") playerX+=20;"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Player renders as red 30x30px square",
+        "Player starts at x=250, y=360",
+        "Arrow left key moves player 20px left",
+        "Arrow right key moves player 20px right"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement shooting mechanics where spacebar fires yellow bullets (5x10px) upward from the player position at 5px per frame",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "if(e.key===\" \") bullets.push({x:playerX,y:350});",
+          "b.y-=5;"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Spacebar creates new bullet at player position",
+        "Bullets render as yellow 5x10px rectangles",
+        "Bullets move upward at 5px per frame",
+        "Bullets are removed when they exit the top of canvas"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Implement enemy spawning system that creates white square enemies (30x30px) at random x positions at the top of the canvas every 1 second, moving downward at 2px per frame",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "function spawnEnemy(){\n        enemies.push({x:Math.random()*480,y:0});\n    }\n\n    setInterval(spawnEnemy,1000);",
+          "e.y+=2;"
+        ]
+      },
+      "acceptanceCriteria": [
+        "New enemy spawns every 1000ms",
+        "Enemies spawn at random x position (0-480) at y=0",
+        "Enemies render as white 30x30px squares",
+        "Enemies move downward at 2px per frame"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Implement collision detection between bullets and enemies that destroys both objects on contact using rectangular bounding box detection",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "if(b.x<e.x+30 && b.x+5>e.x &&\n                   b.y<e.y+30 && b.y+10>e.y){\n                       enemies.splice(ei,1);\n                       bullets.splice(bi,1);\n                }"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Collision detection checks all bullet-enemy pairs each frame",
+        "Both bullet and enemy are removed when collision occurs",
+        "Collision uses rectangular bounding box algorithm"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Implement game loop using requestAnimationFrame that continuously clears the canvas and redraws all game entities (player, bullets, enemies)",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "function draw(){\n        ctx.clearRect(0,0,500,400);",
+          "requestAnimationFrame(draw);"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Game loop runs using requestAnimationFrame",
+        "Canvas is cleared every frame before redrawing",
+        "All entities (player, bullets, enemies) are rendered each frame"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Apply consistent dark theme styling with red accent color (#ff003c), including glow effects on interactive elements and text shadows",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "color:#ff003c;\n    text-shadow:0 0 15px #ff003c;",
+          "text-shadow:0 0 25px red;"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Primary accent color is #ff003c (red)",
+        "Text elements use red glow shadow effects",
+        "Interactive elements scale and glow on hover",
+        "Overall theme maintains dark aesthetic with red highlights"
+      ]
+    }
+  ],
+  "constraints": [
+    "Game must use HTML5 Canvas for rendering",
+    "Canvas dimensions must be exactly 500x400 pixels",
+    "All game logic must run client-side in the browser"
+  ],
+  "nonGoals": [
+    "Score tracking or leaderboards",
+    "Multiple levels or difficulty progression",
+    "Sound effects or background music",
+    "Mobile touch controls",
+    "Multiplayer functionality",
+    "Backend persistence of game state"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Dark atmospheric hero background image with combat/battle theme for landing page (hero-bg.dim_1920x1080.png)"
+    ],
+    "edits": []
+  }
+}

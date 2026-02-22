@@ -1,0 +1,10 @@
+{
+  "frontend/src/App.tsx": "Main application component managing game state and toggling between hero landing page and active game canvas.",
+  "frontend/src/components/Navigation.tsx": "Fixed navigation bar displaying the \"Dark KillZone\" branding with red glow effect and semi-transparent dark background.",
+  "frontend/src/components/Hero.tsx": "Hero landing page component with animated title, background image, radial gradient overlay, and START GAME button.",
+  "frontend/src/components/GameCanvas.tsx": "Canvas-based 2D shooter game with player movement, bullet shooting, enemy spawning, collision detection, and score tracking using requestAnimationFrame game loop with properly initialized refs.",
+  "frontend/src/components/Footer.tsx": "Footer component with copyright notice and attribution link to caffeine.ai with UTM tracking parameters.",
+  "frontend/src/index.css": "Global styles with OKLCH color system, custom danger color tokens, glow effects, radial gradients, and game-specific animations.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with custom danger color and maintaining existing design tokens.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder file as the game runs entirely client-side without backend queries."
+}
